@@ -1,34 +1,25 @@
-import java.util.*;
+import java.util.Scanner;
 
 public class armstrongNumber {
-    // Driver code
+
     public static void main(String[] args) {
-        // variables initialization
-        int num = 1634, reverse = 0;
-        int len = order(num);
-
-        if (num == getArmstrongSum(num, len))
-            System.out.println(num + " is an Armstrong Number");
-        else
-            System.out.println(num + " is not an Armstrong Number");
-
-    }
-
-    private static int getArmstrongSum(int num, int order) {
-        if (num == 0)
-            return 0;
-
-        int digit = num % 10;
-
-        return (int) Math.pow(digit, order) + getArmstrongSum(num / 10, order);
-    }
-
-    private static int order(int num) {
-        int len = 0;
-        while (num != 0) {
-            len++;
-            num = num / 10;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter your number:- ");
+        int n =sc.nextInt();
+        int temp = n;
+        int res =0;
+        while (temp>0) {
+            int ld = temp%10;
+            res = res + ld*ld*ld;
+            temp = temp/10;
+            
         }
-        return len;
+        if (res==n) {
+            System.out.println("The given number is armstrong");
+            
+            
+        }else{
+            System.out.println("The given number is not armstrong ");
+        }
     }
 }
